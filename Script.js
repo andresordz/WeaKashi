@@ -140,7 +140,7 @@ function sendData()
 
 function deleteData()
 {
-	alert(boolDataMode);
+	
 	clave = document.getElementById("claveB").value;
 	i = 0;
 	flag = false;
@@ -149,7 +149,7 @@ function deleteData()
 	{
 		x = xmlDoc.getElementsByTagName("alumno");
 		l = x.length;
-		alert(l);
+		
 	}//if-XML
 	else 
 	{
@@ -161,13 +161,13 @@ function deleteData()
 	{
 		if (boolDataMode == boolDataMode_XML)
 		{
-			alert(x[i].childNodes[0].nodeValue);
+			
 			if (x[i].childNodes[0].childNodes[0].nodeValue == clave)
 			{	//Se encontro registro a borrar
 								baja = confirm("Dar de baja a: " +
 								x[i].childNodes[0].childNodes[0].nodeValue
 								+" - "
-								+x[i].childNodes[0].childNodes[0].nodeValue
+								+x[i].childNodes[1].childNodes[0].nodeValue
 								+ "?");
 				if (baja == true)
 				{
@@ -199,7 +199,6 @@ function deleteData()
 				i++;
 		}//else-JSON
 	}//while
-	alert("Baja Realizada.");
 }
 
 function changeData()
@@ -390,7 +389,7 @@ function busqueda()
 		
 		a = xmlDoc.getElementsByTagName("alumno");
 		x = xmlDoc.getElementsByTagName(campo);
-		l = 55
+		l = x.length;
 		alert(l);
 	}//if-XML
 	else if (boolDataMode == boolDataMode_JSON)
@@ -422,7 +421,7 @@ function busqueda()
 		if (boolDataMode == boolDataMode_XML)
 		{
 			alert("wea");
-			if (x[i].childNodes[0].nodeValue == clave)
+			if (x[i].childNodes[0].nodeValue == valor)
 			{
 			tblResultados.innerHTML += "<tr>"
 								+ "<td>"
