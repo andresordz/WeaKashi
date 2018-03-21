@@ -2,7 +2,7 @@ var indiceEncontrado = -1;
 
 var boolDataMode_XML = 1;
 var boolDataMode_JSON = 2;
-var boolDataMode = boolDataMode_XML;
+var boolDataMode = boolDataMode_JSON;
 
 var txt = "<alumnos>" 
 txt += 	"<alumno>" 
@@ -140,11 +140,12 @@ function sendData()
 
 function deleteData()
 {
+	alert(boolDataMode);
 	clave = document.getElementById("claveB").value;
 	i = 0;
 	flag = false;
 	
-	if (boolDataMode = boolDataMode_XML)
+	if (boolDataMode == boolDataMode_XML)
 	{
 		x = xmlDoc.getElementsByTagName("alumno");
 		l = x.length;
@@ -513,6 +514,7 @@ function busqueda()
 
 function reporte()
 {
+	alert(boolDataMode);
 	document.getElementById("altas").style.display = "none";
 	document.getElementById("bajas").style.display = "none";
 	document.getElementById("buscar").style.display = "none";
@@ -642,7 +644,14 @@ function bajas()
 	document.getElementById("cambios").style.display = "none";
 	document.getElementById("reporte").style.display = "none";
 }
-
+function buscar()
+{
+	document.getElementById("altas").style.display = "none";
+	document.getElementById("bajas").style.display = "none";
+	document.getElementById("buscar").style.display = "block";
+	document.getElementById("cambios").style.display = "none";
+	document.getElementById("reporte").style.display = "none";
+}
 function cambios()
 {
 	document.getElementById("altas").style.display = "none";
@@ -652,12 +661,5 @@ function cambios()
 	document.getElementById("reporte").style.display = "none";
 }
 
-function buscar()
-{
-	document.getElementById("altas").style.display = "none";
-	document.getElementById("bajas").style.display = "none";
-	document.getElementById("buscar").style.display = "block";
-	document.getElementById("cambios").style.display = "none";
-	document.getElementById("reporte").style.display = "none";
-}
+
 
