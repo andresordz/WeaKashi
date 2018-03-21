@@ -196,19 +196,22 @@
 		</form>
 	</div>
 	<!--Fin de container-->
+	</div>
 </section>
-</div>
 
 
-	<section class="container-fluid bg_gray">
+
+	
 	<div id="bajas" ng-app="myApp" ng-controller="myCtrl" ng-init="myCol='lightblue'"> 
+	<section class="container-fluid bg_gray">
 	<h2><span class="chevron"></span>Baja de alumnos</h2>
 	<div class="col-sm-6">
 	Introduce la clave del alumno a dar de baja:<input type="text" maxlength="6" id="claveB"/><br>
 	<button class="button" type="submit" onclick="deleteData()">DAR DE BAJA</button>
 	</div>
-	</div>
 	</section>
+	</div>
+	
 	
 	
 
@@ -320,25 +323,20 @@
 					<p class="instrucciones">Lugar:</p>
 				</div>
 				<div class="col-sm-6" >
-					<select id="lugarC" ng-model="selectedName" ng-options="x for x in names">
-
+					<select id="lugarC">
+						<option value="Ford">Ford</option>
+                        <option value="CISCO">CISCO</option>
+                        <option value="Bimbo">Bimbo</option>
+						<option value="IBM">IBM</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="BANDAI">BANDAI</option>
 					</select>
 				</div>
 			</div>
-			
-			<div class="row">
-			<div class="col-sm-6">
-			<p class="instrucciones">He leido y aceptado los terminos y condiciones<span class="asteriscoRojo">*</span>: </p>
-				</div>
-				<div class="col-sm-6">
-					<input id="cmpCel" type="checkbox" id="Terminos" name="SI" size="6">
-				</div>
-
-			</div>
 
 			<div class="row">
-			<button class="button" type="submit" onclick="sendData()">SUBMIT</button>
-				<input type="button" class="botonAzul btnEnviar" value="Enviar" id="btnEnv" onClick="sendData()">
+			<p id="index" style="display:none"></p>
+			<button class="button" type="submit" onclick="updateData()">Actualizar</button>
 			</div>
 		</form>	
                
@@ -357,6 +355,8 @@
                 <option value="apMaterno">Apellido Materno</option>
 				<option value="correo">Correo</option>
                 <option value="celular">Celular</option>
+				<option value="color">Color</option>
+				<option value="alergia">Alergia</option>
             </select>
             <input type="text" maxlength="40" id="textoBusqueda"/><br>
             <button class="button" type="submit" onclick="busqueda()">HACER BUSQUEDA</button>

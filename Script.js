@@ -27,11 +27,9 @@ var txtj = '{"alumno":['
 			+ '{ "clave":"123450", "nombre":"Juan", '
 				+'"apellidoP":"Cucho", "apellidoM":"Chicho", '
 				+'"correo":"asas@hty.com", "celular":"4435652343", '
-				+'"fecha"2018-03-13", "color":"#1f285d", '
+				+'"fecha":"2018-03-13", "color":"#1f285d", '
 				+'"alergia":"Paracetamol", "mes":"Enero", '
-			+'"lugar":CISCO"}'
-			+ '{ "clave":"123451", "nombre":"Lety", '
-				+'"sexo":"Femenino", "edoCivil":"Soltero"}'
+			+'"lugar":"CISCO"}'
 			+ ']}';
 			
 var alumnos = JSON.parse(txtj);
@@ -150,6 +148,7 @@ function deleteData()
 	{
 		x = xmlDoc.getElementsByTagName("alumno");
 		l = x.length;
+		alert(l);
 	}//if-XML
 	else 
 	{
@@ -161,12 +160,13 @@ function deleteData()
 	{
 		if (boolDataMode == boolDataMode_XML)
 		{
-			if (x[i].childNodes[0].childNodes[0].nodoValue == clave)
+			alert(x[i].childNodes[0].nodeValue);
+			if (x[i].childNodes[0].childNodes[0].nodeValue == clave)
 			{	//Se encontro registro a borrar
-				baja = confirm("Dar de baja a: "
-								+x[i].childNodes[0].childNodes[0].nodoValue
+								baja = confirm("Dar de baja a: " +
+								x[i].childNodes[0].childNodes[0].nodeValue
 								+" - "
-								+x[i].childNodes[0].childNodes[0].nodoValue
+								+x[i].childNodes[0].childNodes[0].nodeValue
 								+ "?");
 				if (baja == true)
 				{
@@ -222,6 +222,7 @@ function changeData()
 		{
 			if (x[i].childNodes[0].childNodes[0].nodeValue == clave)
 			{
+				
 				//Copia de los valores del documento XML a controles HTML de la página
 				document.getElementById("claveC").value = x[i].childNodes[0].childNodes[0].nodeValue;
 				document.getElementById("nombreC").value = x[i].childNodes[1].childNodes[0].nodeValue;
@@ -331,22 +332,11 @@ function changeData()
 function updateData () 
 {
 	i = indiceEncontrado;
-	
-	if (i >= 0)
-	{
-		//Si fue encontrado
-		if (document.getElementById("visitaEC").checked = true)
-			mes = Enero;
-		else if(document.getElementById("visitaMC").checked = true)
-			mes = Mayo;
-		else if(document.getElementById("visitaAC").checked = true)
-			mes = Agosto;
-		else if(document.getElementById("visitaSC").checked = true)
-			mes = Septiembre;
 
+		//Si fue encontrado
 		if (boolDataMode == boolDataMode_XML)
 		{
-			x=xmlDoc.getElementById("alumno");
+			x=xmlDoc.getElementsByTagName("alumno");
 
 			
 			x[i].childNodes[0].childNodes[0].nodeValue = document.getElementById("claveC").value;
@@ -386,7 +376,6 @@ function updateData ()
 			alumno.alumno[i].mes = mes;
 			alumnos.alumno[i].lugar = document.getElementById("lugarC").value;
 		}//else-JSON
-	}
 	alert("Actualización Realizada");
 }//updateData
 
@@ -397,9 +386,11 @@ function busqueda()
 	cont = 0;
 	
 	if (boolDataMode == boolDataMode_XML){
-		a = xmlDoc.getElementsByName("alumno");
-		x = xmlDoc.getElementsByName(campo);
-		l = a.length;
+		
+		a = xmlDoc.getElementsByTagName("alumno");
+		x = xmlDoc.getElementsByTagName(campo);
+		l = 55
+		alert(x);
 	}//if-XML
 	else if (boolDataMode == boolDataMode_JSON)
 	{
@@ -407,8 +398,8 @@ function busqueda()
 	}
 	tblResultados = document.getElementById("resultadoBusqueda");
 	
-	tabla.innerHTML = "";
-	tabla.innerHTML = "<thead><tr>"
+	tblResultados.innerHTML = "";
+	tblResultados.innerHTML = "<thead><tr>"
 						+"<th>Clave</th>" 
 						+"<th>Nombre</th>"
 						+"<th>ApellidoP</th>"
@@ -426,43 +417,45 @@ function busqueda()
 						
 	for(i = 0; i < l; i++)
 	{
+		
 		if (boolDataMode == boolDataMode_XML)
 		{
-			if (x[i].childNodes[0].nodeValue == valor)
+			//alert(x[i].childNodes[0].childNodes[0].nodeValue);
+			if (x[i].childNodes[0].nodeValue == clave)
 			{
-			tabla.innerHTML += "<tr>"
+			tblResultados.innerHTML += "<tr>"
 								+ "<td>"
-								+		x[i].childNodes[0].childNodes[0].nodeValue
+								+		a[i].childNodes[0].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[1].childNodes[0].nodeValue
+								+		a[i].childNodes[1].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[2].childNodes[0].nodeValue
+								+		a[i].childNodes[2].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[3].childNodes[0].nodeValue
+								+		a[i].childNodes[3].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[4].childNodes[0].nodeValue
+								+		a[i].childNodes[4].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[5].childNodes[0].nodeValue
+								+		a[i].childNodes[5].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[6].childNodes[0].nodeValue
+								+		a[i].childNodes[6].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[7].childNodes[0].nodeValue
+								+		a[i].childNodes[7].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[8].childNodes[0].nodeValue
+								+		a[i].childNodes[8].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[9].childNodes[0].nodeValue
+								+		a[i].childNodes[9].childNodes[0].nodeValue
 								+ "</td>"
 								+ "<td>"
-								+		x[i].childNodes[10].childNodes[0].nodeValue
+								+		a[i].childNodes[10].childNodes[0].nodeValue
 								+ "</td>"
 							+ "</tr>";
 				cont++;
@@ -511,11 +504,11 @@ function busqueda()
 			}//if
 		}//else-JSON
 	}
-	tabla.innerHTML += "</tbody>";
+	tblResultados.innerHTML += "</tbody>";
 	if (cont == 0)
 		document.getElementById("message").innerHTML = "No hay coincidencias";
 	else
-		document.getElementById("message").innerHTML = "Se encontraron"+cont+" coincidencias";
+		document.getElementById("message").innerHTML = "Se encontraron " + cont + " coincidencias";
 	}
 
 function reporte()
