@@ -271,8 +271,10 @@ function changeData()
 		}//if-XML
 		else if (boolDataMode == boolDataMode_JSON)
 		{
+			alert("JSON");
 			if (alumnos.alumno[i].clave == clave)
 			{
+				alert("Entrada");
 				document.getElementById("claveC").value = alumnos.alumno[i].clave;
 				document.getElementById("nombreC").value = alumnos.alumno[i].nombre;
 				document.getElementById("apPaternoC").value = alumnos.alumno[i].apellidoP;
@@ -282,7 +284,6 @@ function changeData()
 				document.getElementById("fechaC").value = alumnos.alumno[i].fecha;
 				document.getElementById("colorC").value = alumnos.alumno[i].color;
 				document.getElementById("alergiaC").value = alumnos.alumno[i].alergia;
-				x[i].childNodes[1].childNodes[0].nodeValue;
 				if (alumnos.alumno[i].mes == "Enero")
 				{
 					document.getElementById("visitaEC").checked = true;
@@ -314,14 +315,19 @@ function changeData()
 				document.getElementById("lugarC").value = alumnos.alumno[i].lugar;
 				indiceEncontrado = i;
 				flag = true;
-				}//if
-				else
+				flag=true;
+			}//if
+				else{
 					i++;
+				}
 		}//else-JSON
 	}//while
 	
 	if (flag)
+	{
 		document.getElementById("formCambios").style.display = "block";
+		alert("Realice los cambios");
+	}
 	else 
 	{
 		indiceEncontrado = -1;
@@ -331,14 +337,15 @@ function changeData()
 
 function updateData () 
 {
+	alert("actualizando");
 	i = indiceEncontrado;
+	x = xmlDoc.getElementsByTagName("alumno");
 
 		//Si fue encontrado
 		if (boolDataMode == boolDataMode_XML)
 		{
-			x=xmlDoc.getElementsByTagName("alumno");
+			alert("XML");
 
-			
 			x[i].childNodes[0].childNodes[0].nodeValue = document.getElementById("claveC").value;
 				
 			x[i].childNodes[1].childNodes[0].nodeValue = document.getElementById("nombreC").value;
@@ -362,8 +369,9 @@ function updateData ()
 			x[i].childNodes[10].childNodes[0].nodeValue = document.getElementById("lugarC").value;
 			
 		}//if-XML
-		else
+		else if (boolDataMode == boolDataMode_JSON)
 		{
+			alert("JSON");
 			alumnos.alumno[i].clave = document.getElementById("claveC").value;
 			alumnos.alumno[i].nombre = document.getElementById("nombreC").value;
 			alumnos.alumno[i].apellidoP = document.getElementById("apPaternoC").value;
@@ -390,7 +398,6 @@ function busqueda()
 		a = xmlDoc.getElementsByTagName("alumno");
 		x = xmlDoc.getElementsByTagName(campo);
 		l = x.length;
-		alert(l);
 	}//if-XML
 	else if (boolDataMode == boolDataMode_JSON)
 	{
@@ -420,7 +427,6 @@ function busqueda()
 		
 		if (boolDataMode == boolDataMode_XML)
 		{
-			alert("wea");
 			if (x[i].childNodes[0].nodeValue == valor)
 			{
 			tblResultados.innerHTML += "<tr>"
@@ -513,7 +519,6 @@ function busqueda()
 
 function reporte()
 {
-	alert(boolDataMode);
 	document.getElementById("altas").style.display = "none";
 	document.getElementById("bajas").style.display = "none";
 	document.getElementById("buscar").style.display = "none";
