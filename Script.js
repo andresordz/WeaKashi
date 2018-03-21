@@ -390,7 +390,7 @@ function busqueda()
 		a = xmlDoc.getElementsByTagName("alumno");
 		x = xmlDoc.getElementsByTagName(campo);
 		l = 55
-		alert(x);
+		alert(l);
 	}//if-XML
 	else if (boolDataMode == boolDataMode_JSON)
 	{
@@ -420,7 +420,7 @@ function busqueda()
 		
 		if (boolDataMode == boolDataMode_XML)
 		{
-			//alert(x[i].childNodes[0].childNodes[0].nodeValue);
+			alert("wea");
 			if (x[i].childNodes[0].nodeValue == clave)
 			{
 			tblResultados.innerHTML += "<tr>"
