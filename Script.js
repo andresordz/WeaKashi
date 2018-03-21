@@ -12,7 +12,7 @@ txt +=	"<apellidoP>Perez</apellidoP>"
 txt +=	"<apellidoM>Ordaz</apellidoM>"
 txt +=	"<correo>Wea@hotmail</correo>"
 txt +=	"<celular>345678</celular>"
-txt +=	"<fecha>123412</fecha>"
+txt +=	"<fecha>2018-03-13</fecha>"
 txt +=	"<color>345621</color>"
 txt +=	"<alergia>Prro</alergia>"
 txt +=	"<mes>Enero</mes>"
@@ -25,7 +25,11 @@ var xmlDoc = parser.parseFromString(txt,"text/xml");
 
 var txtj = '{"alumno":['
 			+ '{ "clave":"123450", "nombre":"Juan", '
-				+'"sexo":"Masculino", "edoCivil":"Soltero"},'
+				+'"apellidoP":"Cucho", "apellidoM":"Chicho", '
+				+'"correo":"asas@hty.com", "celular":"4435652343", '
+				+'"fecha"2018-03-13", "color":"#1f285d", '
+				+'"alergia":"Paracetamol", "mes":"Enero", '
+			+'"lugar":CISCO"}'
 			+ '{ "clave":"123451", "nombre":"Lety", '
 				+'"sexo":"Femenino", "edoCivil":"Soltero"}'
 			+ ']}';
@@ -589,7 +593,7 @@ function reporte()
 	{
 		for(i = 0; i < alumnos.alumno.length; i++)
 		{
-			tblResultados.innerHTML += "<tr>"
+			tabla.innerHTML += "<tr>"
 								+ "<td>"
 								+		alumnos.alumno[i].clave
 								+ "</td>"
