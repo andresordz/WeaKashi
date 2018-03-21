@@ -405,8 +405,8 @@ function busqueda()
 	}
 	tblResultados = document.getElementById("resultadoBusqueda");
 	
-	tabla.innerHTML = "";
-	tabla.innerHTML = "<thead><tr>"
+	tblResultados.innerHTML = "";
+	tblResultados.innerHTML = "<thead><tr>"
 						+"<th>Clave</th>" 
 						+"<th>Nombre</th>"
 						+"<th>ApellidoP</th>"
@@ -428,7 +428,7 @@ function busqueda()
 		{
 			if (x[i].childNodes[0].nodeValue == valor)
 			{
-			tabla.innerHTML += "<tr>"
+			tblResultados.innerHTML += "<tr>"
 								+ "<td>"
 								+		x[i].childNodes[0].childNodes[0].nodeValue
 								+ "</td>"
@@ -509,7 +509,7 @@ function busqueda()
 			}//if
 		}//else-JSON
 	}
-	tabla.innerHTML += "</tbody>";
+	tblResultados.innerHTML += "</tbody>";
 	if (cont == 0)
 		document.getElementById("message").innerHTML = "No hay coincidencias";
 	else
