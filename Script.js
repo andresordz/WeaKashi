@@ -74,7 +74,7 @@ function sendData()
 		
 		newEleCorreo = xmlDoc.createElement("correo");
 		newTxtCorreo = xmlDoc.createTextNode(correo);
-		newEleApellidoM.appendChild(newTxtCorreo);
+		newEleCorreo.appendChild(newTxtCorreo);
 		
 		newEleCelular = xmlDoc.createElement("celular");
 		newTxtCelular = xmlDoc.createTextNode(celular);
