@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--Comentario-->
+<alumnos>
+<alumno>
+	<nombre>Juan</nombre>
+	<ciudad>CDMX</ciudad>
+	<sueldo>15000</sueldo>
+</alumno>
+<alumno>
+	<nombre>Pedro</nombre>
+	<ciudad>GDL</ciudad>
+	<sueldo>20000</sueldo>
+</alumno>
+</alumnos>

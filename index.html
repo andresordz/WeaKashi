@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="p1.css">
+	<script src="Script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+	$(".col-sm-5").hide();
+		$("#TEST").click(function(){
+			$(".col-sm-5").show();
+			console.log("BLA");
+		});
+		$("input").focus(function(){
+		$(this).css("background-color", "#cccccc");
+		});
+		 $("input").blur(function(){
+			$(this).css("background-color", "#ffffff");
+		});
+		$("#btnEnv").click(function(){
+			alert("Datos Enviados!");
+		});
+		$("#btnEnv").hover(function(){
+			$(this).css("background-color", "#ff0000");
+		});
+		$("#btnEnv").mouseleave(function(){
+		$(this).css("background-color", "#101d61");
+		});
+	});
+	</script>
+	<title>Formulario Alumnos</title>
+		 <meta charset="UTF-8">
+		<link rel="stylesheet" href="css/normalize.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom.css">
+		
+	</head>
+<h1 class="titulo">Registro en línea<br><span class="chevron"></span><span>Visitas Guiadas</span></h1>
+
+<body>
+
+
+
+<div id="navcontainer">
+            <ul id="globalnav">
+                <li><a href="#" onclick="altas()">Altas</a></li>
+                <li><a href="#" onclick="bajas()">Bajas</a></li>
+                <li><a href="#" onclick="cambios()">Cambios</a></li>
+                <li><a href="#" onclick="buscar()">Buscar</a></li>
+                <li><a href="#" onclick="reporte()">Reportes</a></li>
+            </ul>
+</div>
+
+
+<section class="container-fluid bg_gray">
+<div id="altas" ng-app="myApp" ng-controller="myCtrl" ng-init="myCol='lightblue'">
+	<!--Inicia container-->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+			 	<!--Registro-->
+			 	<br>
+			 	<h2><span class="chevron"></span> Registro</h2>
+			 	<hr class="lineaGaleria" style="width: 5.5cm;">
+			</div>
+		</div>
+		<form id="myform" >
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Nombre(s)<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="Nombre" ng-model="firstName" style="background-color:{{myCol}}" id="nombreA" ng-model="myCol"  >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Apellido paterno<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6" >
+					<input type="text" ng-model="lastName" name="App" style="background-color:{{myCol}}" id="apPaternoA" ng-model="myCol">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Apellido materno: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="Apm" ng-model="lastNames" style="background-color:{{myCol}}" id="apMaternoA" ng-model="myCol">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Correo electrónico<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="email" name="Correo_electronico" placeholder="correo@correo.com" id="correoA">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Celular<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input  type="tel" name="Celular" size="15" min="1" placeholder="5512345678" maxlength="10" id="celularA">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Clave ULSA<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input  type="number" name="Clave"  min="1"  min="999999" id="claveA">
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Fecha de nacimiento<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="date" name="Cumple" id="fechaA">
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Color de la playera que te vamos a regalar: </p>
+				</div>
+				<div class="col-sm-6">
+					<input name="colorCamisa" type="color" value="#1f285d" id="colorA">
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones" id="TEST" >De doble click si tiene alergias:</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					<p class="instrucciones" id="LlenaAlergia" >Indique sus alergias:</p>
+				</div>
+				<div class="col-sm-5">
+					<input  type="text" id="alergiaA" name="LlenaAlergia">
+				</div>
+			</div>
+			
+			<div class="row" >
+				<br>
+			 	<h2><span class="chevron" ></span > A donde vas a ir {{firstName + " " + lastName}}?</h2>
+			 	<hr class="lineaGaleria" style="width: 8.3cm;">
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Visitar en: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="radio" id="visitaEA" name="LugarA" class="instrucciones" value="Enero"> Enero
+					<input type="radio" id="visitaMA" name="LugarA" class="instrucciones" value="Mayo"> Mayo
+					<input type="radio" id="visitaAA" name="LugarA" class="instrucciones" value="Agosto"> Agosto
+					<input type="radio" id="visitaSA" name="LugarA" class="instrucciones" value="Septiembre"> Septiembre
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Lugar:</p>
+				</div>
+				<div class="col-sm-6" >
+					<select id="lugarA" ng-model="selectedName" ng-options="x for x in names">
+
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+			<div class="col-sm-6">
+			<p class="instrucciones">He leido y aceptado los terminos y condiciones<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input id="cmpCel" type="checkbox" id="Terminos" name="SI" size="6">
+				</div>
+
+			</div>
+
+			<div class="row">
+			<button class="button" type="submit" onclick="sendData()">SUBMIT</button>
+				<input type="button" class="botonAzul btnEnviar" value="Enviar" id="btnEnv" onClick="sendData()">
+			</div>
+		</form>
+	</div>
+	<!--Fin de container-->
+</section>
+</div>
+
+
+
+	<div id="bajas" style="display:none"> 
+	<h2>Baja de alumnos</h2>
+	<div class="body">
+	Introduce la clave del alumno a dar de baja:<input type="text" maxlength="6" id="claveB"/><br>
+	<button class="button" type="submit" onclick="deleteData()">DAR DE BAJA</button>
+	</div>
+	</div>
+	
+	
+
+	
+	<div id="cambios" style="display:none">
+            <h2>Cambios en Informacion de Alumnos</h2>
+			Introduce la clave del alumno a modificar:<input type="text" maxlength="6" id="buscarC"/><br>
+            <button class="button" type="submit" onclick="changeData()">Buscar</button>
+			 <div class="body" id="formCambios" style="display:none">
+<form id="myform" >
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Nombre(s)<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="Nombre" ng-model="firstName" style="background-color:{{myCol}}" id="nombreC" ng-model="myCol"  >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Apellido paterno<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6" >
+					<input type="text" ng-model="lastName" name="App" style="background-color:{{myCol}}" id="apPaternoC" ng-model="myCol">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Apellido materno: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" name="Apm" ng-model="lastNames" style="background-color:{{myCol}}" id="apMaternoC" ng-model="myCol">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Correo electrónico<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="email" name="Correo_electronico" placeholder="correo@correo.com" id="correoC">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Celular<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input  type="tel" name="Celular" size="15" min="1" placeholder="5512345678" maxlength="10" id="celularC">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Clave ULSA<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input  type="number" name="Clave"  min="1"  min="999999" id="claveC">
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Fecha de nacimiento<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="date" name="Cumple" id="fechaC">
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Color de la playera que te vamos a regalar: </p>
+				</div>
+				<div class="col-sm-6">
+					<input name="colorCamisa" type="color" value="#1f285d" id="colorC">
+				</div>
+
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones" id="TEST" >De doble click si tiene alergias:</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					<p class="instrucciones" id="LlenaAlergia" >Indique sus alergias:</p>
+				</div>
+				<div class="col-sm-5">
+					<input  type="text" id="alergiaC" name="LlenaAlergia">
+				</div>
+			</div>
+			
+			<div class="row" >
+				<br>
+			 	<h2><span class="chevron" ></span > A donde vas a ir {{firstName + " " + lastName}}?</h2>
+			 	<hr class="lineaGaleria" style="width: 8.3cm;">
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Visitar en: </p>
+				</div>
+				<div class="col-sm-6">
+					<input type="radio" id="visitaEC" name="LugarC" class="instrucciones" value="Enero"> Enero
+					<input type="radio" id="visitaMC" name="LugarC" class="instrucciones" value="Mayo"> Mayo
+					<input type="radio" id="visitaAC" name="LugarC" class="instrucciones" value="Agosto"> Agosto
+					<input type="radio" id="visitaSC" name="LugarC" class="instrucciones" value="Septiembre"> Septiembre
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="instrucciones">Lugar:</p>
+				</div>
+				<div class="col-sm-6" >
+					<select id="lugarC" ng-model="selectedName" ng-options="x for x in names">
+
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+			<div class="col-sm-6">
+			<p class="instrucciones">He leido y aceptado los terminos y condiciones<span class="asteriscoRojo">*</span>: </p>
+				</div>
+				<div class="col-sm-6">
+					<input id="cmpCel" type="checkbox" id="Terminos" name="SI" size="6">
+				</div>
+
+			</div>
+
+			<div class="row">
+			<button class="button" type="submit" onclick="sendData()">SUBMIT</button>
+				<input type="button" class="botonAzul btnEnviar" value="Enviar" id="btnEnv" onClick="sendData()">
+			</div>
+		</form>	
+               
+            </div>
+	</div>
+	
+	<div id="buscar" style="display:none">
+            <h2>Consulta de Alumnos</h2>
+            Selecciona un campo para buscar:<br />
+            <select id="campoBusqueda">
+                <option value="clave">Clave</option>
+                <option value="nombre">Nombre</option>
+                <option value="apPaterno">Apellido Paterno</option>
+                <option value="apMaterno">Apellido Materno</option>
+				<option value="correo">Correo</option>
+                <option value="celular">Celular</option>
+            </select>
+            <input type="text" maxlength="40" id="textoBusqueda"/><br>
+            <button class="button" type="submit" onclick="busqueda()">HACER BUSQUEDA</button>
+            <p id="message"></p>
+            <table id="resultadoBusqueda" class="tabla">
+            </table>
+    </div>
+	
+	<div id="reporte" style="display:none">
+            <h2>Reporte de Alumnos</h2>
+            <table id="tablaReporte" class="tabla">
+				</table>
+    </div>
+
+	
+</body>
+
+ <script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Ford", "CISCO", "Bimbo", "IBM", "Microsoft", "BANDAI"];
+    $scope.firstName= "Nombre";
+    $scope.lastName= "Apellido Paterno";
+	$scope.lastNames= "Apellido Materno";
+});
+</script>
+
+
+ </html>
