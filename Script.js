@@ -324,7 +324,7 @@ function changeData()
 	else 
 	{
 		indiceEncontrado = -1;
-		alert("Not Found");
+		alert("No se encontró nadie con esa clave");
 	}
 }//change data
 
