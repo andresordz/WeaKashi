@@ -2,7 +2,7 @@ var indiceEncontrado = -1;
 
 var boolDataMode_XML = 1;
 var boolDataMode_JSON = 2;
-var boolDataMode = boolDataMode_XML;
+var boolDataMode = boolDataMode_JSON;
 
 var txt = "<alumnos>" 
 txt += 	"<alumno>" 
@@ -27,11 +27,9 @@ var txtj = '{"alumno":['
 			+ '{ "clave":"123450", "nombre":"Juan", '
 				+'"apellidoP":"Cucho", "apellidoM":"Chicho", '
 				+'"correo":"asas@hty.com", "celular":"4435652343", '
-				+'"fecha"2018-03-13", "color":"#1f285d", '
+				+'"fecha":"2018-03-13", "color":"#1f285d", '
 				+'"alergia":"Paracetamol", "mes":"Enero", '
-			+'"lugar":CISCO"}'
-			+ '{ "clave":"123451", "nombre":"Lety", '
-				+'"sexo":"Femenino", "edoCivil":"Soltero"}'
+			+'"lugar":"CISCO"}'
 			+ ']}';
 			
 var alumnos = JSON.parse(txtj);
